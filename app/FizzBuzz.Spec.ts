@@ -69,8 +69,11 @@ describe(WORDS.FIZZBUZZ, () => {
                 expect(result).to.deep.equal(scenario.result);
             });
         });
+    });
 
-        it('should build a report of words changed', () => {
+    describe('Build Report', () => {
+
+        it('should output a report of words changed', () => {
             // Given
             let game = new FizzBuzz(seq);
 
@@ -80,5 +83,6 @@ describe(WORDS.FIZZBUZZ, () => {
             // Then
             expect(game.report()).to.equal('fizz: 4 buzz: 3 fizzbuzz: 1 lucky: 2 integer: 10');
         });
-    });
+
+    })
 });
