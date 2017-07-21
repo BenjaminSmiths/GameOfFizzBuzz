@@ -1,3 +1,10 @@
+export const WORDS = {
+    FIZZ: <WordType>'fizz',
+    BUZZ: <WordType>'buzz',
+    FIZZBUZZ: <WordType>'fizzbuzz',
+    LUCKY: <WordType>'lucky'
+};
+export type WordType = 'fizz'|'buzz'|'fizzbuzz'|'lucky'
 
 
 export class FizzBuzz {
@@ -9,12 +16,14 @@ export class FizzBuzz {
     play(): any[] {
         return this.sequence.map(number => {
             switch (true) {
+                case String(number).includes('3'):
+                    return WORDS.LUCKY;
                 case number % 15 === 0:
-                    return 'fizzbuzz';
+                    return WORDS.FIZZBUZZ;
                 case number % 3 === 0:
-                    return 'fizz';
+                    return WORDS.FIZZ;
                 case number % 5 === 0:
-                    return 'buzz';
+                    return WORDS.BUZZ;
                 default:
                     return number;
             }
