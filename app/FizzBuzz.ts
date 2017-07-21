@@ -4,12 +4,12 @@ export const WORDS = {
     FIZZBUZZ: <WordType>'fizzbuzz',
     LUCKY: <WordType>'lucky'
 };
-export type WordType = 'fizz'|'buzz'|'fizzbuzz'|'lucky'
+export type WordType = 'fizz' | 'buzz' | 'fizzbuzz' | 'lucky'
 
 
 export class FizzBuzz {
 
-    private _reports: (WordType|number)[] = [];
+    private _reports: (WordType | number)[] = [];
 
     constructor(readonly sequence: number[]) {
 
@@ -30,7 +30,7 @@ export class FizzBuzz {
      *
      * @returns {[(WordType|any)]}
      */
-    play(): (WordType|number)[] {
+    play(): (WordType | number)[] {
         return this._reports = this.sequence.map(number => {
             switch (true) {
                 case String(number).includes('3'):
@@ -52,10 +52,12 @@ export class FizzBuzz {
     //////////////////////////////////////////////////////////
 
     private get _wordReports(): string[] {
-        return Object.keys(WORDS).map((key: string) => {
-            let word: string = (WORDS as any)[key];
-            return `${word}: ${this._count(word)}`
-        }).concat();
+        return Object.keys(WORDS)
+            .map((key: string) => {
+                let word: string = (WORDS as any)[key];
+                return `${word}: ${this._count(word)}`
+            })
+            .concat();
     }
 
     private get _numberReports(): string[] {
