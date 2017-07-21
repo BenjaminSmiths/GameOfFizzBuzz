@@ -2,13 +2,13 @@ import {expect} from 'chai';
 import {FizzBuzz, WORDS, WordType} from './FizzBuzz';
 
 describe(WORDS.FIZZBUZZ, () => {
+    let seq: number[];
+
+    beforeEach(() => {
+        seq = [...Array(20).keys()].map(n => n + 1);
+    });
 
     describe('Playing the game', () => {
-        let seq: number[];
-
-        beforeEach(() => {
-            seq = [...Array(20).keys()].map(n => n + 1);
-        });
 
         it('should have a readonly sequence of numbers', () => {
             // Given
@@ -69,6 +69,16 @@ describe(WORDS.FIZZBUZZ, () => {
                 expect(result).to.deep.equal(scenario.result);
             });
         });
-    });
 
+        it('should build a report of words changed', () => {
+            // Given
+            let game = new FizzBuzz(seq);
+
+            // When
+            game.play();
+
+            // Then
+            expect(game.report()).to.equal('fizz: 4 buzz: 3 fizzbuzz: 1 lucky: 2 integer: 10');
+        });
+    });
 });
