@@ -1,0 +1,23 @@
+{
+  "appId": "fizz-buzz-lucky",
+  "name": "FizzBuzzLucky-Test",
+  "version": "0.0.1",
+  "displayName": "Fizz Buzz Lucky",
+  "description": "This is how you play Fizz Buzz",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "tsc && node node_modules/mocha/bin/mocha build/**/*.Spec.js",
+    "start": "tsc && node build/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:BenjaminSmiths/fizz-buzz-lucky.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.32",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.0",
+    "typescript": "~2.0.10"
+  }
+}
